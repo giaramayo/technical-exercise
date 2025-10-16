@@ -1,0 +1,17 @@
+<p-toast />
+
+<search-input
+  (value)="query.set($event)"
+  placeholder="Buscar por país"
+  [initialValue]="query()"
+/>
+
+@if(query()) {
+  <country-list
+    [countries]="countryResource.value()"
+    [search]="false"
+    [errorMessage]="countryResource.error()"
+    [isEmpty]="countryResource.value().length === 0"
+    [isLoading]="countryResource.isLoading()"
+  />
+}

@@ -1,0 +1,26 @@
+@for (product of products(); track $index) {
+<div class="flex flex-col sm:flex-row sm:items-center p-6 gap-6">
+
+  <div class="w-full sm:w-30 relative flex-shrink-0">
+    <img class="rounded-lg w-full object-cover shadow-sm" [src]="product.image" [alt]="product.title" />
+  </div>
+
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center flex-1 gap-6">
+
+    <div class="flex flex-col gap-2">
+      <span class="font-medium text-gray-500 dark:text-gray-400 text-sm">
+        {{ product.category }}
+      </span>
+      <div class="text-lg font-semibold text-surface-900 dark:text-surface-0">
+        {{ product.title }}
+      </div>
+      <span class="text-xl font-semibold text-accent">{{ product.price | currency: 'USD' }}</span>
+    </div>
+
+    <div class="flex flex-col md:items-end gap-4">
+      <action-store [idProducts]="product.id" />
+    </div>
+
+  </div>
+</div>
+}

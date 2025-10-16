@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+:root {
+  --surface-a: transparent;
+  --text-color: #e2e8f0;
+}
+
+.p-datatable {
+  background-color: transparent !important;
+  color: var(--text-color);
+}
+
+.p-datatable-thead > tr > th {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.p-datatable-tbody > tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* styles.css */
+.custom-orange-button .p-button {
+  background-color: #FFA500;
+  border-color: #FFA500;
+  color: #fff;
+}
+
+.custom-orange-button .p-button:hover {
+  background-color: #FF8C00;
+  border-color: #FF8C00;
+}

@@ -1,0 +1,66 @@
+<section class="mx-10">
+  <h1 class="text-3xl">{{ country().name }}</h1>
+  <h2 class="text-xl font-thin">
+    Población {{ country().population | numberWithDots }}
+  </h2>
+</section>
+
+<section class="stats shadow mx-5 justify-center">
+  <div class="stat place-items-center">
+    <div class="stat-title">Población</div>
+    <div class="stat-value">{{ country().population | numberWithDots }}</div>
+    <div class="stat-desc">Desde {{ currentYear() }}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Nombre</div>
+    <div class="stat-value text-secondary">{{ country().name }}</div>
+    <div class="stat-desc text-secondary">{{ country().capital }}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Sub Region</div>
+    <div class="stat-value">{{ country().subRegion }}</div>
+    <div class="stat-desc">{{ country().region }}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Bandera</div>
+    <div class="stat-value">{{ country().flag }}</div>
+    <div class="stat-desc">{{ country().subRegion }}</div>
+  </div>
+
+
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Lenguaje</div>
+
+    <div class="stat-figure">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 15 15"
+        class="inline-block h-8 w-8 stroke-current">
+        <path
+          d="M12.5 13.5H3a1.5 1.5 0 1 1 0-3h8.5a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1H3a1.5 1.5 0 0 0-1.5 1.46v10m10-1.46v3" />
+        <path
+          d="M8.051 5.002h2.315l-2.46 3.473h2.605M3.512 5.986l1.066-3.199a.4.4 0 0 1 .38-.274v0c.173 0 .327.11.382.274l1.066 3.199M3.898 4.828H6.02" />
+      </svg>
+    </div>
+
+    <div class="stat-value text-lg text-secondary flex flex-wrap justify-center">
+      @for (lang of country().languages; track lang) {
+        <span class="inline-block bg-blue-700/20 text-blue-400 px-3 py-1 rounded-xl mr-2 mb-2">
+          {{ lang.value }}
+        </span>
+      }
+    </div>
+
+    <div class="stat-desc text-slate-400 mt-1">
+      Total: {{ country().languages.length }}
+    </div>
+  </div>
+
+</section>
+
+<section class="diff aspect-[16/9] mx-5 my-10">
+  <img [alt]="country().name" [src]="country().flagSvg" />
+  <div class="diff-resizer"></div>
+</section>

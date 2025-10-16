@@ -1,0 +1,27 @@
+<p-toast />
+
+<div class="navbar shadow-sm px-4">
+  <div class="flex-1">
+    <search-input (value)="filterProducts($event)" [showBotton]="false" placeholder="Buscar producto"
+      class="w-full md:w-64" />
+  </div>
+
+  <div class="flex gap-2 items-center">
+    <product-option-view (onSelectList)="selectedList.set($event)" />
+  </div>
+</div>
+
+@if(selectedList() ) {
+<products-list [products]="filteredProducts()" [isEmpty]="productResource.value().length === 0" />
+} @else {
+<products-grid [products]="filteredProducts()" [isEmpty]="productResource.value().length === 0" />
+}
+
+
+@if( productResource.error() ) {
+<app-not-found [text]="'No se encontró producto'" [showBotton]="false" />
+}
+
+@if (productResource.isLoading()) {
+<h1 class="text-3xl">Cargando...</h1>
+}
