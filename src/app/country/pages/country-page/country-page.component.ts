@@ -2,10 +2,10 @@ import { Component, inject, signal } from '@angular/core';
 import { CountryInformationComponent } from './country-information/country-information.component';
 import { ActivatedRoute } from '@angular/router';
 import { CountryService } from '../../services/country.service';
-import { NotFoundComponent } from '../../../shared/components/not-found/not-found.component';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { Country } from '../../interfaces/country.interface';
 import { of } from 'rxjs';
+import { NotFoundComponent } from '@shared-components/not-found/not-found.component';
 
 @Component({
   selector: 'country-page',

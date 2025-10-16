@@ -6,8 +6,9 @@ import { map, Observable, catchError, throwError, delay, of, tap } from 'rxjs';
 import type { Country } from '../interfaces/country.interface';
 import { CountryMapper } from '../mappers/country.mapper';
 import { Region } from '../interfaces/region.type';
+import { environment } from 'src/environments/environment.prod';
 
-const API_URL = 'https://restcountries.com/v3.1';
+const API_URL = environment.apiCountrie;
 
 @Injectable({
   providedIn: 'root',

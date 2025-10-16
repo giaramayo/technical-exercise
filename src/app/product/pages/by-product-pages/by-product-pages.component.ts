@@ -8,8 +8,8 @@ import { ProductsGridComponent } from "../../components/products-grid/products-g
 import { ToastModule, Toast } from 'primeng/toast';
 import { ProductsListComponent } from "../../components/products-list/products-list.component";
 import { OptionViewComponent } from '../../components/option-view/option-view.component';
-import { SearchInputComponent } from "../../../shared/components/search-input/search-input.component";
-import { NotFoundComponent } from "../../../shared/components/not-found/not-found.component";
+import { SearchInputComponent } from '@shared-components/search-input/search-input.component';
+import { NotFoundComponent } from '@shared-components/not-found/not-found.component';
 
 @Component({
   selector: 'by-product-pages',

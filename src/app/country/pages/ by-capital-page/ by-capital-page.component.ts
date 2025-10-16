@@ -1,5 +1,4 @@
 import { Component, inject, linkedSignal, signal } from '@angular/core';
-import { SearchInputComponent } from "../../../shared/components/search-input/search-input.component";
 import { CountryListComponent } from "../../components/country-list/country-list.component";
 import { CountryService } from '../../services/country.service';
 import { rxResource } from '@angular/core/rxjs-interop';
@@ -8,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Country } from '../../interfaces/country.interface';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { SearchInputComponent } from '@shared-components/search-input/search-input.component';
 
 @Component({
   selector: 'by-capital-page',
