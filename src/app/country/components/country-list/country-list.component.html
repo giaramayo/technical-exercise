@@ -37,7 +37,11 @@
               <ng-template #filter let-value let-filter="filterCallback">
                 <p-slider [(ngModel)]="rangeValue" [range]="true" [min]="0" [max]="200000000" class="m-4" (onSlideEnd)="filter($event.values)"></p-slider>
                 <div class="flex justify-center text-sm">
-                  <span> rangeValue ? ({{ rangeValue[0] | number }} - {{ rangeValue[1] | number }} : 0)</span>
+                  @if(!rangeValue) {
+                    <span> 0 </span>
+                  } @else {
+                    <span> {{ rangeValue[0] | number }} - {{ rangeValue[1] | number }}</span>
+                  }
                 </div>
               </ng-template>
 
