@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { ProductLayoutComponent } from './layouts/ProductLayout/ProductLayout.component';
 import { ByProductPagesComponent } from './pages/by-product-pages/by-product-pages.component';
+import { ProductPagesComponent } from './pages/product-pages/product-pages.component';
 
 export const countryRoutes: Routes = [
   {
@@ -8,23 +9,13 @@ export const countryRoutes: Routes = [
     component: ProductLayoutComponent,
     children: [
       {
-        path: 'by-product', // Por capital
+        path: 'by-product',
         component: ByProductPagesComponent,
       },
-    //   {
-    //     path: 'by-country', // Por país
-    //     component: ByCountryPageComponent,
-    //   },
-    //   {
-    //     path: 'by-region',  // Por región
-    //     component: ByRegionPageComponent,
-    //   },
-
-    //   {
-    //     path: 'by/:code', // Detalle del país
-    //     component: CountryPageComponent,
-    //   },
-
+      {
+        path: 'by/:code',
+        component: ProductPagesComponent,
+      },
       {
         path: '**',
         redirectTo: 'by-product',

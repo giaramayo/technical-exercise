@@ -24,7 +24,7 @@
       </div>
 
       <div class="flex justify-end gap-2 mt-4">
-        <action-store [idProducts]="product.id" />
+        <ng-container *ngTemplateOutlet="itemTemplate; context: { $implicit: product }"></ng-container>
       </div>
 
     </div>

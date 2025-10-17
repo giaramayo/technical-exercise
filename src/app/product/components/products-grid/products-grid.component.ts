@@ -1,4 +1,4 @@
-import { Component, input, signal, WritableSignal } from '@angular/core';
+import { Component, ContentChild, input, output, signal, TemplateRef, WritableSignal } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -7,7 +7,6 @@ import { SliderModule } from 'primeng/slider';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Product } from '../../interfaces/rest-product.interface';
-import { ActionStoreComponent } from "../action-store/action-store.component";
 
 @Component({
   selector: 'products-grid',
@@ -21,11 +20,12 @@ import { ActionStoreComponent } from "../action-store/action-store.component";
     InputTextModule,
     ButtonModule,
     TagModule,
-    ActionStoreComponent
 ]
 })
 export class ProductsGridComponent {
   products = input.required<Product[]>();
   isEmpty = input<boolean>(false);
+
+  @ContentChild(TemplateRef) itemTemplate!: TemplateRef<any>;
 
 }
