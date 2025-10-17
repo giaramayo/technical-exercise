@@ -8,7 +8,7 @@ Una aplicación que permite buscar, filtrar y visualizar información sobre pais
 
 ¡Haz clic en la siguiente imagen para ver la aplicación en acción!  
 
-[![Demo](https://github.com/giaramayo/technical-exercise/blob/main/assets/demo.png)](https://giaramayo.github.io/Carreras/)
+[![Demo](https://github.com/giaramayo/technical-exercise/blob/main/assets/demo.png)](https://giaramayo.github.io/technical-exercise/)
 
 ---
 
