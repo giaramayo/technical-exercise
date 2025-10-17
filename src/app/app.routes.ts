@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './shared/pages/home/home.component';
+import { ErrorPageComponent } from './shared/pages/error-page/error-page.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'country',
+   component: ErrorPageComponent
   },
 ];

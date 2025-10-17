@@ -1,18 +1,14 @@
 <p-toast />
 
-<search-input
-  placeholder="Buscar por capital"
-  (value)="query.set($event)"
-  [debounceTime]="300"
-  [initialValue]="query()"
-/>
+<h2 class="text-2xl lg:text-3xl font-bold text-accent break-words leading-tight truncate"
+  style="max-width: 100%; white-space: normal; overflow-wrap: break-word;">
+  Busqueda de país por capital
+</h2>
+
+<span class="font-medium text-gray-500 dark:text-gray-400 text-sm">Ingresar una capital</span>
+<search-input placeholder="Buscar.." (value)="query.set($event)" [debounceTime]="300" [initialValue]="query()" />
 
 @if(query()) {
-  <country-list
-    [countries]="countryResource.value()"
-    [search]="false"
-    [errorMessage]="countryResource.error()"
-    [isEmpty]="countryResource.value().length === 0"
-    [isLoading]="countryResource.isLoading()"
-  />
+<country-list [countries]="countryResource.value()" [search]="false" [errorMessage]="countryResource.error()"
+  [isEmpty]="countryResource.value().length === 0" [isLoading]="countryResource.isLoading()" />
 }

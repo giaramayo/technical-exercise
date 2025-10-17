@@ -11,18 +11,22 @@
   </div>
 </div>
 
-@if(selectedList() ) {
-<products-list [products]="filteredProducts()" [isEmpty]="productResource.value().length === 0">
-  <ng-template let-product>
-    <action-store [idProducts]="product.id" (onAction)="actionProduct($event)" />
-  </ng-template>
-</products-list>
+@if( productResource.value().length > 0 ) {
+  @if(selectedList() ) {
+      <products-list [products]="filteredProducts()" [isEmpty]="productResource.value().length === 0">
+        <ng-template let-product>
+          <action-store [idProducts]="product.id" (onAction)="actionProduct($event)" />
+        </ng-template>
+      </products-list>
+  } @else {
+      <products-grid [products]="filteredProducts()" [isEmpty]="productResource.value().length === 0">
+        <ng-template let-product>
+          <action-store [idProducts]="product.id" (onAction)="actionProduct($event)" />
+        </ng-template>
+      </products-grid>
+  }
 } @else {
-<products-grid [products]="filteredProducts()" [isEmpty]="productResource.value().length === 0">
-  <ng-template let-product>
-    <action-store [idProducts]="product.id" (onAction)="actionProduct($event)" />
-  </ng-template>
-</products-grid>
+  <app-not-found [text]="'No se encontró producto'" [showBotton]="false" />
 }
 
 

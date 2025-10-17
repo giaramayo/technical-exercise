@@ -6,9 +6,12 @@
     <img [src]="product()?.image || 'https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp'"
       [alt]="product()?.title" />
   </figure>
-  <div class="card-body">
+  <div class="card-body w-full lg:w-1/2">
 
-    <div class="stat-value text-accent">{{ product()?.title }}</div>
+    <h2 class="text-2xl lg:text-3xl font-bold text-accent break-words leading-tight truncate"
+      style="max-width: 100%; white-space: normal; overflow-wrap: break-word;">
+      {{ product()?.title }}
+    </h2>
 
     <span class="font-medium text-gray-500 dark:text-gray-400 text-sm">
       {{ product()?.category }}
