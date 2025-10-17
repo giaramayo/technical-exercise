@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { CountryInformationComponent } from './country-information/country-information.component';
 import { ActivatedRoute } from '@angular/router';
 import { CountryService } from '../../services/country.service';
@@ -11,6 +11,7 @@ import { NotFoundComponent } from '@shared-components/not-found/not-found.compon
   selector: 'country-page',
   imports: [NotFoundComponent, CountryInformationComponent],
   templateUrl: './country-page.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountryPageComponent {
   route = inject(ActivatedRoute);

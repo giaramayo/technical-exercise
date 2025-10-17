@@ -1,33 +1,28 @@
+<p-toast />
 
 <div class="flex flex-row-reverse md:flex-row gap-2">
+  <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-info" pTooltip="Editar producto"
+    tooltipPosition="top" (click)="onAction.emit({ id: idProducts(), delet: false })">
+    @if(searchEvent()){
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="currentColor"
+        d="M9.539 15.23q-2.398 0-4.065-1.666Q3.808 11.899 3.808 9.5t1.666-4.065T9.539 3.77t4.064 1.666T15.269 9.5q0 1.042-.369 2.017t-.97 1.668l5.909 5.907q.14.14.15.345q.009.203-.15.363q-.16.16-.354.16t-.354-.16l-5.908-5.908q-.75.639-1.725.989t-1.96.35m0-1q1.99 0 3.361-1.37q1.37-1.37 1.37-3.361T12.9 6.14T9.54 4.77q-1.991 0-3.361 1.37T4.808 9.5t1.37 3.36t3.36 1.37" />
+    </svg>
+    } @else {
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8l8 8l1.41-1.41L7.83 13H20z" />
+    </svg>
+    }
+  </button>
 
   <p-confirmDialog></p-confirmDialog>
-  <button pButton
-          icon="pi pi-trash"
-          class="p-button-rounded p-button-danger"
-          pTooltip="Eliminar producto"
-          tooltipPosition="top"
-          (click)="confirmDelete()">
+  <button pButton icon="pi pi-trash" class="p-button-rounded p-button-danger" pTooltip="Eliminar producto"
+    tooltipPosition="top" (click)="confirmDelete()">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <path fill="currentColor" fill-rule="evenodd"
         d="M9.774 5L3.758 3.94l.174-.986a.5.5 0 0 1 .58-.405L18.411 5h.088h-.087l1.855.327a.5.5 0 0 1 .406.58l-.174.984l-2.09-.368l-.8 13.594A2 2 0 0 1 15.615 22H8.386a2 2 0 0 1-1.997-1.883L5.59 6.5h12.69zH5.5zM9 9l.5 9H11l-.4-9zm4.5 0l-.5 9h1.5l.5-9zm-2.646-7.871l3.94.694a.5.5 0 0 1 .405.58l-.174.984l-4.924-.868l.174-.985a.5.5 0 0 1 .58-.405z" />
     </svg>
   </button>
 
-
-  <button pButton
-          icon="pi pi-pencil"
-          class="p-button-rounded p-button-info"
-          pTooltip="Editar producto"
-          tooltipPosition="top"
-          (click)="onAction.emit({ id: idProducts(), delet: false })">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5">
-        <path
-          d="M16.946 3.173c.587-.587.88-.88 1.206-1.021c.469-.203 1-.203 1.469 0c.325.14.619.434 1.206 1.021s.88.881 1.021 1.206c.203.469.203 1 0 1.469c-.14.325-.434.619-1.021 1.206l-5.022 5.022c-1.237 1.237-1.855 1.855-2.63 2.222s-1.646.452-3.387.624L9 15l.078-.788c.172-1.741.257-2.612.624-3.387s.985-1.393 2.222-2.63z" />
-        <path stroke-linecap="round" d="M6 15H3.75a1.75 1.75 0 1 0 0 3.5h9.5a1.75 1.75 0 1 1 0 3.5H11" />
-      </g>
-    </svg>
-  </button>
 
 </div>

@@ -41,8 +41,13 @@ export class ProductService {
   deleteProduct(id: number): Observable<any> {
     return this.http.delete(`${environment.apiEcommerce}/products/${id}`).pipe(
       tap(() => {
-        this.allProducts.update(products => products.filter(p => p.id !== id));
-        this.filteredProducts.update(products => products.filter(p => p.id !== id));
+        const updated = this.allProducts().filter(p => Number(p.id) !== Number(id));
+        this.allProducts.set(updated);
+        this.filteredProducts.set(updated);
+        console.log(`Producto con ID ${id} eliminado`);
+        console.log('Productos actualizados:', updated);
+
+        localStorage.setItem(PRODUCT_KEY, JSON.stringify(updated));
       }),
       catchError(err => {
         console.error('Error al eliminar producto', err);
@@ -54,7 +59,6 @@ export class ProductService {
   getProduct(id: number): Observable<Product | undefined> {
     const product = this.allProducts().find(p => p.id === id);
     if (product) return of(product);
-
     return this.http.get<Product>(`${environment.apiEcommerce}/products/${id}`);
   }
 

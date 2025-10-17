@@ -1,4 +1,4 @@
-import { Component, inject, linkedSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, linkedSignal } from '@angular/core';
 import { CountryListComponent } from "../../components/country-list/country-list.component";
 import { CountryService } from '../../services/country.service';
 import { Region } from '../../interfaces/region.type';
@@ -30,6 +30,7 @@ function validateQueryParam(queryParam: string): Region {
   imports: [CountryListComponent, ToastModule],
   templateUrl: './by-region-page.component.html',
   providers: [MessageService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ByRegionPageComponent {
   countryService = inject(CountryService);

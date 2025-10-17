@@ -1,4 +1,4 @@
-import { Component, inject, linkedSignal, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, linkedSignal, signal } from '@angular/core';
 import { CountryListComponent } from "../../components/country-list/country-list.component";
 import { CountryService } from '../../services/country.service';
 import { rxResource } from '@angular/core/rxjs-interop';
@@ -13,7 +13,8 @@ import { SearchInputComponent } from '@shared-components/search-input/search-inp
   selector: 'by-capital-page',
   imports: [SearchInputComponent, CountryListComponent, ToastModule],
   templateUrl: './ by-capital-page.component.html',
-  providers: [MessageService]
+  providers: [MessageService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ByCapitalPageComponent {
   countryService = inject(CountryService);

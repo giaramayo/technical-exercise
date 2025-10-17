@@ -1,4 +1,4 @@
-import { Component, inject, WritableSignal, signal } from '@angular/core';
+import { Component, inject, WritableSignal, signal, ChangeDetectionStrategy } from '@angular/core';
 import { rxResource } from '@angular/core/rxjs-interop';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../interfaces/rest-product.interface';
@@ -27,6 +27,7 @@ import { Router } from '@angular/router';
     NotFoundComponent,
     ActionStoreComponent
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ByProductPagesComponent {
 
@@ -78,26 +79,7 @@ export class ByProductPagesComponent {
   }
 
   actionProduct(event: { id: number; delet: boolean }) {
-    if (event.delet) {
-      this.productService.deleteProduct(event.id).subscribe({
-        next: () => {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Producto eliminado',
-            detail: 'El producto fue eliminado correctamente',
-            life: 3000,
-          });
-        },
-        error: (err) => {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error al eliminar',
-            detail: err?.message ?? 'No se pudo eliminar el producto',
-            life: 4000,
-          });
-        },
-      });
-    } else {
+    if (!event.delet) {
       console.log('Edit product with ID:', event.id);
       this.router.navigate(['/product/by', event.id]);
     }

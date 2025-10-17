@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { Country } from '../../../interfaces/country.interface';
 import { NumberWithDotsPipe } from '../../../../shared/pipe/number-with-dots.pipe';
 
@@ -6,6 +6,7 @@ import { NumberWithDotsPipe } from '../../../../shared/pipe/number-with-dots.pip
   selector: 'country-information-pages',
   imports: [NumberWithDotsPipe],
   templateUrl: './country-information.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountryInformationComponent {
   country = input.required<Country>();
